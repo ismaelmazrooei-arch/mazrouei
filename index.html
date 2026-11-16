@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Esmael Mazrouei — Full-stack developer</title>
-<meta name="description" content="Full-stack developer building enterprise Angular and ASP.NET Core applications in Isfahan, Iran.">
+<title>Esmael Mazrouei — Senior software developer</title>
+<meta name="description" content="Senior software developer with 15+ years of experience in desktop, mobile and web systems. Angular, ASP.NET Core, Kotlin, Flutter, Odoo.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%B1%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Sans+3:wght@400;600&family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f3f6f6;
@@ -17,7 +17,6 @@
   --line: #c9d3d5;
   --tile: #0e8a8a;
   --lapis: #1f3a93;
-  --surface: #e6ecec;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
 }
@@ -29,9 +28,18 @@
     --line: #26383f;
     --tile: #3fc1bd;
     --lapis: #8fa6ff;
-    --surface: #16262d;
   }
 }
+html[lang="fa"] {
+  --display: "Vazirmatn", Tahoma, system-ui, sans-serif;
+  --body: "Vazirmatn", Tahoma, system-ui, sans-serif;
+}
+
+/* language switching */
+.fa { display: none; }
+html[lang="fa"] .fa { display: inline; }
+html[lang="fa"] .en { display: none; }
+
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -40,6 +48,7 @@ body {
   color: var(--ink);
   font: 400 1.125rem/1.6 var(--body);
 }
+html[lang="fa"] body { line-height: 1.9; }
 a { color: var(--lapis); text-underline-offset: 3px; }
 a:hover { color: var(--tile); }
 :focus-visible { outline: 3px solid var(--tile); outline-offset: 3px; border-radius: 2px; }
@@ -47,11 +56,16 @@ a:hover { color: var(--tile); }
 .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
 
 /* header */
-.top { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
+.top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem 1.5rem; padding: 1.25rem 0; }
 .top strong { font-family: var(--display); font-weight: 800; }
-.top nav { display: flex; gap: 1.5rem; }
+.top nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; }
 .top nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
 .top nav a:hover { color: var(--tile); }
+#lang {
+  font: 600 1rem var(--body); color: var(--ink); background: none;
+  border: 2px solid var(--line); border-radius: 4px; padding: 0.15rem 0.75rem; cursor: pointer;
+}
+#lang:hover { border-color: var(--tile); color: var(--tile); }
 
 /* hero */
 .hero { position: relative; padding: 5rem 0 6rem; overflow: hidden; }
@@ -61,7 +75,8 @@ a:hover { color: var(--tile); }
   letter-spacing: -0.03em;
   margin: 0 0 2rem;
 }
-.hero p { position: relative; z-index: 1; max-width: 34rem; margin: 0 0 2rem; color: var(--muted); font-size: 1.25rem; }
+html[lang="fa"] .hero h1 { line-height: 1.2; letter-spacing: 0; font-size: clamp(3rem, 10vw, 7rem); }
+.hero p { position: relative; z-index: 1; max-width: 36rem; margin: 0 0 2rem; color: var(--muted); font-size: 1.25rem; }
 .hero .cta { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .btn {
   display: inline-block; padding: 0.7rem 1.25rem; border-radius: 4px;
@@ -72,6 +87,7 @@ a:hover { color: var(--tile); }
 .btn:hover { border-color: var(--tile); background: var(--tile); color: #fff; }
 
 .tiles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+html[dir="rtl"] .tiles { transform: scaleX(-1); }
 .tiles .grid {
   stroke: var(--tile); fill: none; stroke-width: 1.5;
   stroke-dasharray: 400; stroke-dashoffset: 400;
@@ -85,18 +101,25 @@ a:hover { color: var(--tile); }
 
 /* sections */
 section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
-h2 { font: 800 clamp(1.75rem, 4vw, 2.5rem)/1.1 var(--display); letter-spacing: -0.02em; margin: 0 0 2rem; }
+h2 { font: 800 clamp(1.75rem, 4vw, 2.5rem)/1.2 var(--display); letter-spacing: -0.02em; margin: 0 0 2rem; }
+html[lang="fa"] h2 { letter-spacing: 0; }
 .split { display: grid; grid-template-columns: 1fr; gap: 1rem 3rem; }
 @media (min-width: 52rem) { .split { grid-template-columns: 14rem 1fr; } }
+.split > h2 { margin-bottom: 0; }
+
+.lead { margin: 0 0 1.5rem; max-width: 40rem; }
+ul.plain { margin: 0; padding-inline-start: 1.2rem; max-width: 40rem; }
+ul.plain li { margin-bottom: 0.4rem; }
 
 /* work list */
 .work { list-style: none; margin: 0; padding: 0; }
 .work li { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
 .work li:first-child { padding-top: 0; }
 .work li:last-child { border-bottom: 0; }
-.work h3 { font: 800 1.5rem/1.2 var(--display); margin: 0 0 0.4rem; }
+.work h3 { font: 800 1.5rem/1.3 var(--display); margin: 0 0 0.4rem; }
 .work p { margin: 0 0 0.6rem; max-width: 40rem; }
-.tags { color: var(--muted); font-size: 1rem; }
+.tags { color: var(--muted); font-size: 1rem; direction: ltr; unicode-bidi: plaintext; }
+html[dir="rtl"] .tags { text-align: right; }
 
 /* stack */
 .stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 2rem; }
@@ -105,10 +128,11 @@ h2 { font: 800 clamp(1.75rem, 4vw, 2.5rem)/1.1 var(--display); letter-spacing: -
 .stack li { padding: 0.2rem 0; }
 
 /* experience */
-.job h3 { font: 800 1.35rem/1.2 var(--display); margin: 0; }
-.job .meta { color: var(--muted); margin: 0.2rem 0 1rem; }
-.job ul { margin: 0; padding-left: 1.2rem; max-width: 42rem; }
-.job li { margin-bottom: 0.4rem; }
+.job { padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.job:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.job h3 { font: 800 1.35rem/1.3 var(--display); margin: 0; }
+.job .meta { color: var(--muted); margin: 0.2rem 0 0; }
+.edu-title { font: 800 1.1rem var(--display); color: var(--lapis); margin: 2.5rem 0 1rem; }
 
 /* contact */
 .contact p { max-width: 36rem; margin-top: 0; }
@@ -121,12 +145,14 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 1rem; border-top:
 
 <div class="wrap">
   <header class="top">
-    <strong>Esmael Mazrouei</strong>
+    <strong><span class="en">Esmael Mazrouei</span><span class="fa">اسماعیل مزروعی</span></strong>
     <nav aria-label="Main">
-      <a href="#work">Work</a>
-      <a href="#stack">Stack</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><span class="en">About</span><span class="fa">درباره من</span></a>
+      <a href="#work"><span class="en">Work</span><span class="fa">نمونه کارها</span></a>
+      <a href="#stack"><span class="en">Skills</span><span class="fa">مهارت‌ها</span></a>
+      <a href="#experience"><span class="en">Experience</span><span class="fa">سوابق</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="fa">تماس</span></a>
+      <button id="lang" type="button" aria-label="Switch language / تغییر زبان">فارسی</button>
     </nav>
   </header>
 
@@ -148,80 +174,174 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 1rem; border-top:
         <rect width="800" height="520" fill="url(#star)" mask="url(#m)"/>
       </svg>
 
-      <h1>Esmael<br>Mazrouei</h1>
-      <p>Full-stack developer building enterprise Angular and ASP.NET Core applications for manufacturing and HR teams in Isfahan, Iran.</p>
+      <h1>
+        <span class="en">Esmael<br>Mazrouei</span>
+        <span class="fa">اسماعیل<br>مزروعی</span>
+      </h1>
+      <p>
+        <span class="en">Senior software developer with 15+ years of experience designing, building and maintaining desktop, mobile and web systems. Based in Isfahan, Iran.</span>
+        <span class="fa">توسعه‌دهنده ارشد نرم‌افزار با بیش از ۱۵ سال تجربه در طراحی، توسعه و نگهداری سامانه‌های دسکتاپ، موبایل و تحت وب. ساکن اصفهان.</span>
+      </p>
       <div class="cta">
-        <a class="btn primary" href="#work">See my work</a>
-        <a class="btn" href="https://github.com/ismaelmazrooei-arch">GitHub profile</a>
+        <a class="btn primary" href="#work"><span class="en">See my work</span><span class="fa">نمونه کارها</span></a>
+        <a class="btn" href="https://github.com/ismaelmazrooei-arch"><span class="en">GitHub profile</span><span class="fa">پروفایل گیت‌هاب</span></a>
       </div>
     </div>
 
+    <section id="about" class="split">
+      <h2><span class="en">About</span><span class="fa">درباره من</span></h2>
+      <div>
+        <p class="lead">
+          <span class="en">I started with Delphi and have since built software with C#, Java, Kotlin, Angular, TypeScript and RxJS. For me software development goes beyond writing code: understand the problem, choose the right architecture, and deliver solutions that last and fit the business.</span>
+          <span class="fa">کارم را با Delphi شروع کردم و بعد با C#‎، Java، Kotlin، Angular، TypeScript و RxJS نرم‌افزارهای مختلفی ساخته‌ام. نگاهم به توسعه نرم‌افزار فراتر از کدنویسی است: شناخت مسئله، انتخاب معماری مناسب و ارائه راهکارهای پایدار و متناسب با نیاز کسب‌وکار.</span>
+        </p>
+        <ul class="plain">
+          <li><span class="en">Analyzing business processes and turning requirements into software</span><span class="fa">تحلیل فرآیندهای کسب‌وکار و تبدیل نیازمندی‌ها به راهکار نرم‌افزاری</span></li>
+          <li><span class="en">Custom modules for Odoo ERP (Python, PostgreSQL, XML) and BPMS workflows</span><span class="fa">طراحی ماژول‌های اختصاصی برای ERP مبتنی بر Odoo (‏Python، PostgreSQL، XML) و فرآیندهای BPMS</span></li>
+          <li><span class="en">Integrating systems</span><span class="fa">یکپارچه‌سازی سامانه‌ها</span></li>
+          <li><span class="en">Maintaining and re-engineering large projects that have no documentation</span><span class="fa">نگهداری و بازمهندسی پروژه‌های بزرگ و فاقد مستندات</span></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="work" class="split">
-      <h2>Selected work</h2>
+      <h2><span class="en">Selected work</span><span class="fa">نمونه کارها</span></h2>
       <ul class="work">
         <li>
-          <h3>Employment management app</h3>
-          <p>Internal Angular application for HR and employment workflows. Moved the data grids to ag-Grid behind one shared base component, and migrated the charts to ag-Charts.</p>
-          <div class="tags">Angular · ag-Grid · ag-Charts · TypeScript</div>
+          <h3><a href="https://employ.sgpco.com/"><span class="en">Employment system</span><span class="fa">سامانه استخدام</span></a></h3>
+          <p>
+            <span class="en">Giti Pasand employment and HR application. Angular frontend with ag-Grid tables built on a shared base component and ag-Charts, ASP.NET Core backend.</span>
+            <span class="fa">سامانه استخدام و منابع انسانی گیتی‌پسند. فرانت‌اند Angular با جدول‌های ag-Grid روی یک کامپوننت پایه مشترک و نمودارهای ag-Charts، و بک‌اند ASP.NET Core.</span>
+          </p>
+          <div class="tags">Angular · ag-Grid · ag-Charts · ASP.NET Core</div>
         </li>
         <li>
-          <h3>Employee performance evaluation dashboard</h3>
-          <p>Persian, right-to-left evaluation form and dashboard that managers use to score employees and review results.</p>
-          <div class="tags">Angular · RTL layout · Persian UI</div>
+          <h3><span class="en">Employee performance dashboard</span><span class="fa">داشبورد ارزیابی عملکرد کارکنان</span></h3>
+          <p>
+            <span class="en">Persian right-to-left form and dashboard for scoring employees and reviewing results.</span>
+            <span class="fa">فرم و داشبورد راست‌چین فارسی برای ارزیابی عملکرد کارکنان و مشاهده نتایج.</span>
+          </p>
+          <div class="tags">Angular · Bootstrap RTL</div>
         </li>
         <li>
-          <h3>HR and employment APIs</h3>
-          <p>Backend services that power the frontends above: employment records, evaluations, and reporting endpoints.</p>
-          <div class="tags">ASP.NET Core · .NET · REST APIs</div>
+          <h3><a href="https://gitix.sgpco.com/">Gitix</a></h3>
+          <p>
+            <span class="en">Web project at Giti Pasand with an ASP.NET Core backend.</span>
+            <span class="fa">پروژه تحت وب در گیتی‌پسند با بک‌اند ASP.NET Core.</span>
+          </p>
+          <div class="tags">ASP.NET Core</div>
+        </li>
+        <li>
+          <h3><span class="en">Mobile apps</span><span class="fa">اپلیکیشن‌های موبایل</span></h3>
+          <p>
+            <span class="en">Android and iOS apps published on Cafe Bazaar, Myket and the App Store.</span>
+            <span class="fa">اپلیکیشن‌های اندروید و iOS منتشرشده در کافه‌بازار، مایکت و اپ‌استور.</span>
+          </p>
+          <div class="tags">Kotlin · Java · Flutter · FCM</div>
         </li>
       </ul>
     </section>
 
     <section id="stack" class="split">
-      <h2>Stack</h2>
+      <h2><span class="en">Skills</span><span class="fa">مهارت‌ها</span></h2>
       <div class="stack">
         <div>
           <h3>Frontend</h3>
-          <ul><li>Angular</li><li>TypeScript</li><li>ag-Grid and ag-Charts</li><li>HTML and CSS</li></ul>
+          <ul><li>Angular</li><li>TypeScript, JavaScript</li><li>RxJS, state management</li><li>HTML, CSS, Bootstrap</li><li>ag-Grid, ag-Charts</li></ul>
         </div>
         <div>
           <h3>Backend</h3>
-          <ul><li>ASP.NET Core</li><li>C# and .NET</li><li>REST APIs</li></ul>
+          <ul><li>ASP.NET Core, C#</li><li>RESTful APIs</li><li>SignalR</li><li>Python, Odoo</li><li>PostgreSQL, XML</li></ul>
         </div>
         <div>
-          <h3>Tools</h3>
-          <ul><li>Git and GitHub</li></ul>
+          <h3>Mobile</h3>
+          <ul><li>Kotlin, Java</li><li>Flutter, Dart</li><li>Android lifecycle</li><li>FCM</li><li>Location, OSM, Leaflet</li></ul>
+        </div>
+        <div>
+          <h3><span class="en">Practices</span><span class="fa">روش‌ها</span></h3>
+          <ul><li>OOP, design patterns</li><li>Clean Architecture</li><li>Dependency injection</li><li>CI/CD, Git</li><li>BPMS</li></ul>
         </div>
       </div>
     </section>
 
     <section id="experience" class="split">
-      <h2>Experience</h2>
-      <div class="job">
-        <h3>Full-stack developer</h3>
-        <p class="meta"><a href="https://sgpco.com">Giti Pasand Industrial Group</a>, Isfahan</p>
-        <ul>
-          <li>Build and maintain enterprise Angular applications used across the company.</li>
-          <li>Design and ship .NET backend APIs for HR and employment features.</li>
-          <li>Refactor shared UI into reusable components so new screens take less code.</li>
+      <h2><span class="en">Experience</span><span class="fa">سوابق</span></h2>
+      <div>
+        <div class="job">
+          <h3><span class="en">Mobile and web developer</span><span class="fa">توسعه‌دهنده موبایل و وب</span></h3>
+          <p class="meta">
+            <span class="en">Giti Pasand IT · Nov 2023 – present</span>
+            <span class="fa">فناوری اطلاعات گیتی‌پسند · آذر ۱۴۰۲ تا حالا</span>
+          </p>
+        </div>
+        <div class="job">
+          <h3><span class="en">Software manager</span><span class="fa">مدیر نرم‌افزار</span></h3>
+          <p class="meta">
+            <span class="en">Padideh Ertebatat Paya · Aug 2010 – Nov 2023</span>
+            <span class="fa">پدیده ارتباطات پویا · شهریور ۱۳۸۹ تا آذر ۱۴۰۲</span>
+          </p>
+        </div>
+        <div class="job">
+          <h3><span class="en">Developer</span><span class="fa">توسعه‌دهنده</span></h3>
+          <p class="meta">
+            <span class="en">Armico · Jun 2006 – Aug 2007</span>
+            <span class="fa">آرمیکو · تیر ۱۳۸۵ تا شهریور ۱۳۸۶</span>
+          </p>
+        </div>
+
+        <h3 class="edu-title"><span class="en">Education</span><span class="fa">سوابق تحصیلی</span></h3>
+        <ul class="plain">
+          <li><span class="en">BSc Information Technology, Shiraz · 2004 – 2010</span><span class="fa">فناوری اطلاعات (کارشناسی)، شیراز · ۱۳۸۳ تا ۱۳۸۹</span></li>
+          <li><span class="en">Mobile development course, Nik Amoozesh</span><span class="fa">دوره توسعه موبایل، نیک آموز · ۱۳۹۱</span></li>
+          <li><span class="en">Web development diploma, Technical and Vocational Training</span><span class="fa">دیپلم توسعه وب، فنی و حرفه‌ای · ۱۳۸۲</span></li>
         </ul>
+        <p class="meta" style="margin-top:1.5rem;color:var(--muted)"><span class="en">Language: English (professional)</span><span class="fa">زبان: انگلیسی (حرفه‌ای)</span></p>
       </div>
     </section>
 
     <section id="contact" class="split contact">
-      <h2>Contact</h2>
+      <h2><span class="en">Contact</span><span class="fa">تماس</span></h2>
       <div>
-        <p>Have a project or a role in mind? Send a message or look through my code on GitHub.</p>
+        <p>
+          <span class="en">Have a project or a role in mind? Send an email or look through my code on GitHub.</span>
+          <span class="fa">پروژه یا فرصت شغلی دارید؟ ایمیل بزنید یا کدهایم را در گیت‌هاب ببینید.</span>
+        </p>
         <div class="links">
-          <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email me</a>
+          <a class="btn primary" href="mailto:ismaelmazrooei@gmail.com"><span class="en">Email me</span><span class="fa">ارسال ایمیل</span></a>
           <a class="btn" href="https://github.com/ismaelmazrooei-arch">GitHub</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>© 2026 Esmael Mazrouei</footer>
+  <footer>© 2026 <span class="en">Esmael Mazrouei</span><span class="fa">اسماعیل مزروعی</span></footer>
 </div>
 
+<script>
+(function () {
+  var html = document.documentElement;
+  var btn = document.getElementById("lang");
+  var titles = {
+    en: "Esmael Mazrouei — Senior software developer",
+    fa: "اسماعیل مزروعی — توسعه‌دهنده ارشد نرم‌افزار"
+  };
+  function setLang(l) {
+    html.lang = l;
+    html.dir = l === "fa" ? "rtl" : "ltr";
+    document.title = titles[l];
+    btn.textContent = l === "fa" ? "English" : "فارسی";
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  var initial = saved === "fa" || saved === "en"
+    ? saved
+    : ((navigator.language || "").indexOf("fa") === 0 ? "fa" : "en");
+  setLang(initial);
+  btn.addEventListener("click", function () {
+    setLang(html.lang === "fa" ? "en" : "fa");
+  });
+})();
+</script>
 </body>
 </html>
