@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esmael Mazrouei — Full-stack developer</title>
+<meta name="description" content="Full-stack developer building enterprise Angular and ASP.NET Core applications in Isfahan, Iran.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%B1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f3f6f6;
+  --ink: #12232b;
+  --muted: #4d6168;
+  --line: #c9d3d5;
+  --tile: #0e8a8a;
+  --lapis: #1f3a93;
+  --surface: #e6ecec;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1a1f;
+    --ink: #e8f0f0;
+    --muted: #9db1b6;
+    --line: #26383f;
+    --tile: #3fc1bd;
+    --lapis: #8fa6ff;
+    --surface: #16262d;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.125rem/1.6 var(--body);
+}
+a { color: var(--lapis); text-underline-offset: 3px; }
+a:hover { color: var(--tile); }
+:focus-visible { outline: 3px solid var(--tile); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* header */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; }
+.top strong { font-family: var(--display); font-weight: 800; }
+.top nav { display: flex; gap: 1.5rem; }
+.top nav a { color: var(--ink); text-decoration: none; font-weight: 600; }
+.top nav a:hover { color: var(--tile); }
+
+/* hero */
+.hero { position: relative; padding: 5rem 0 6rem; overflow: hidden; }
+.hero h1 {
+  position: relative; z-index: 1;
+  font: 800 clamp(3.5rem, 12vw, 9rem)/0.92 var(--display);
+  letter-spacing: -0.03em;
+  margin: 0 0 2rem;
+}
+.hero p { position: relative; z-index: 1; max-width: 34rem; margin: 0 0 2rem; color: var(--muted); font-size: 1.25rem; }
+.hero .cta { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block; padding: 0.7rem 1.25rem; border-radius: 4px;
+  font-weight: 600; text-decoration: none;
+  border: 2px solid var(--ink); color: var(--ink);
+}
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn:hover { border-color: var(--tile); background: var(--tile); color: #fff; }
+
+.tiles { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.tiles .grid {
+  stroke: var(--tile); fill: none; stroke-width: 1.5;
+  stroke-dasharray: 400; stroke-dashoffset: 400;
+  animation: draw 2.4s ease-out 0.2s forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .tiles .grid { animation: none; stroke-dashoffset: 0; }
+  html { scroll-behavior: auto; }
+}
+
+/* sections */
+section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
+h2 { font: 800 clamp(1.75rem, 4vw, 2.5rem)/1.1 var(--display); letter-spacing: -0.02em; margin: 0 0 2rem; }
+.split { display: grid; grid-template-columns: 1fr; gap: 1rem 3rem; }
+@media (min-width: 52rem) { .split { grid-template-columns: 14rem 1fr; } }
+
+/* work list */
+.work { list-style: none; margin: 0; padding: 0; }
+.work li { padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.work li:first-child { padding-top: 0; }
+.work li:last-child { border-bottom: 0; }
+.work h3 { font: 800 1.5rem/1.2 var(--display); margin: 0 0 0.4rem; }
+.work p { margin: 0 0 0.6rem; max-width: 40rem; }
+.tags { color: var(--muted); font-size: 1rem; }
+
+/* stack */
+.stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 2rem; }
+.stack h3 { font: 800 1.1rem var(--display); margin: 0 0 0.5rem; color: var(--lapis); }
+.stack ul { margin: 0; padding: 0; list-style: none; }
+.stack li { padding: 0.2rem 0; }
+
+/* experience */
+.job h3 { font: 800 1.35rem/1.2 var(--display); margin: 0; }
+.job .meta { color: var(--muted); margin: 0.2rem 0 1rem; }
+.job ul { margin: 0; padding-left: 1.2rem; max-width: 42rem; }
+.job li { margin-bottom: 0.4rem; }
+
+/* contact */
+.contact p { max-width: 36rem; margin-top: 0; }
+.contact .links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 1rem; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <strong>Esmael Mazrouei</strong>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <svg class="tiles" viewBox="0 0 800 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="star" width="80" height="80" patternUnits="userSpaceOnUse">
+            <rect class="grid" x="12" y="12" width="56" height="56"/>
+            <rect class="grid" x="12" y="12" width="56" height="56" transform="rotate(45 40 40)"/>
+            <circle class="grid" cx="40" cy="40" r="10"/>
+          </pattern>
+          <radialGradient id="fade" cx="85%" cy="40%" r="65%">
+            <stop offset="0" stop-color="#fff" stop-opacity="0.9"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="m"><rect width="800" height="520" fill="url(#fade)"/></mask>
+        </defs>
+        <rect width="800" height="520" fill="url(#star)" mask="url(#m)"/>
+      </svg>
+
+      <h1>Esmael<br>Mazrouei</h1>
+      <p>Full-stack developer building enterprise Angular and ASP.NET Core applications for manufacturing and HR teams in Isfahan, Iran.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn" href="https://github.com/ismaelmazrooei-arch">GitHub profile</a>
+      </div>
+    </div>
+
+    <section id="work" class="split">
+      <h2>Selected work</h2>
+      <ul class="work">
+        <li>
+          <h3>Employment management app</h3>
+          <p>Internal Angular application for HR and employment workflows. Moved the data grids to ag-Grid behind one shared base component, and migrated the charts to ag-Charts.</p>
+          <div class="tags">Angular · ag-Grid · ag-Charts · TypeScript</div>
+        </li>
+        <li>
+          <h3>Employee performance evaluation dashboard</h3>
+          <p>Persian, right-to-left evaluation form and dashboard that managers use to score employees and review results.</p>
+          <div class="tags">Angular · RTL layout · Persian UI</div>
+        </li>
+        <li>
+          <h3>HR and employment APIs</h3>
+          <p>Backend services that power the frontends above: employment records, evaluations, and reporting endpoints.</p>
+          <div class="tags">ASP.NET Core · .NET · REST APIs</div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="stack" class="split">
+      <h2>Stack</h2>
+      <div class="stack">
+        <div>
+          <h3>Frontend</h3>
+          <ul><li>Angular</li><li>TypeScript</li><li>ag-Grid and ag-Charts</li><li>HTML and CSS</li></ul>
+        </div>
+        <div>
+          <h3>Backend</h3>
+          <ul><li>ASP.NET Core</li><li>C# and .NET</li><li>REST APIs</li></ul>
+        </div>
+        <div>
+          <h3>Tools</h3>
+          <ul><li>Git and GitHub</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="split">
+      <h2>Experience</h2>
+      <div class="job">
+        <h3>Full-stack developer</h3>
+        <p class="meta"><a href="https://sgpco.com">Giti Pasand Industrial Group</a>, Isfahan</p>
+        <ul>
+          <li>Build and maintain enterprise Angular applications used across the company.</li>
+          <li>Design and ship .NET backend APIs for HR and employment features.</li>
+          <li>Refactor shared UI into reusable components so new screens take less code.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="split contact">
+      <h2>Contact</h2>
+      <div>
+        <p>Have a project or a role in mind? Send a message or look through my code on GitHub.</p>
+        <div class="links">
+          <a class="btn primary" href="mailto:YOUR_EMAIL@example.com">Email me</a>
+          <a class="btn" href="https://github.com/ismaelmazrooei-arch">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Esmael Mazrouei</footer>
+</div>
+
+</body>
+</html>
